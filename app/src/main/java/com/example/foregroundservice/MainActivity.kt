@@ -53,12 +53,15 @@ class MainActivity : AppCompatActivity() {
         findViewById<Button>(R.id.btnGetValue).setOnClickListener {
             findViewById<TextView>(R.id.tvCounter).text = myService.getNumber().toString()
         }
+
+        findViewById<Button>(R.id.btnStopService).setOnClickListener {
+            stopService(myIntent)
+        }
     }
 
     override fun onDestroy() {
         Log.d(TAG,"MainActivity: onDestroy")
         //unbindService(serviceConnection)
-        stopService(myIntent)
         super.onDestroy()
     }
 }
