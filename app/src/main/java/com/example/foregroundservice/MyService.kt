@@ -22,6 +22,8 @@ class MyService: Service() {
     override fun onBind(p0: Intent?): IBinder? {
         Log.d(TAG,"Service: onBind")
         val myServiceBinder: MyServiceBinder = MyServiceBinder()
+        val serviceNotification:ServiceNotification = ServiceNotification()
+        startForeground(1,serviceNotification.showNotification(this))
         Thread{loop()}.start()
         return myServiceBinder
     }

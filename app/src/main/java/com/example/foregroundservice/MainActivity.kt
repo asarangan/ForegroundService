@@ -41,14 +41,22 @@ class MainActivity : AppCompatActivity() {
 //        serviceNotification.showNotification(this)
 
         myIntent = Intent(this, MyService::class.java)
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            startForegroundService(myIntent)
-            Log.d(TAG,"MainActivity: startForegroundService")
-        }
 //        startService(myIntent)
 //        Log.d(TAG,"MainActivity: startService")
 
-        //bindService(myIntent,serviceConnection, Context.BIND_AUTO_CREATE)
+        findViewById<Button>(R.id.btnStartService).setOnClickListener {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                startForegroundService(myIntent)
+                Log.d(TAG, "MainActivity: startForegroundService")
+            }
+        }
+
+
+        findViewById<Button>(R.id.btnBind).setOnClickListener{
+            Log.d(TAG,"MainActivity: Bind")
+            bindService(myIntent,serviceConnection, Context.BIND_AUTO_CREATE)
+        }
+
 
         findViewById<Button>(R.id.btnGetValue).setOnClickListener {
             findViewById<TextView>(R.id.tvCounter).text = myService.getNumber().toString()
@@ -56,6 +64,10 @@ class MainActivity : AppCompatActivity() {
 
         findViewById<Button>(R.id.btnStopService).setOnClickListener {
             stopService(myIntent)
+        }
+
+        findViewById<Button>(R.id.btnUnbind).setOnClickListener {
+            unbindService(serviceConnection)
         }
     }
 

@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:text="Hello World!"
         android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/btnGetValue"
+        app:layout_constraintBottom_toTopOf="@+id/btnStartService"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -27,17 +27,50 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvCounter" />
+        app:layout_constraintTop_toBottomOf="@+id/btnBind" />
 
     <Button
         android:id="@+id/btnStopService"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Stop Service"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/btnUnbind"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnGetValue" />
+
+    <Button
+        android:id="@+id/btnBind"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bind"
+        app:layout_constraintBottom_toTopOf="@+id/btnGetValue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnStartService" />
+
+    <Button
+        android:id="@+id/btnStartService"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Start Service"
+        app:layout_constraintBottom_toTopOf="@+id/btnBind"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvCounter" />
+
+    <Button
+        android:id="@+id/btnUnbind"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Unbind"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnStopService" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
