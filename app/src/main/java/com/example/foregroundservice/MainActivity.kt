@@ -44,28 +44,31 @@ class MainActivity : AppCompatActivity() {
 //        startService(myIntent)
 //        Log.d(TAG,"MainActivity: startService")
 
+        //Start service
         findViewById<Button>(R.id.btnStartService).setOnClickListener {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                startForegroundService(myIntent)
+                startService(myIntent)
                 Log.d(TAG, "MainActivity: startForegroundService")
             }
         }
 
-
+        //Bind
         findViewById<Button>(R.id.btnBind).setOnClickListener{
             Log.d(TAG,"MainActivity: Bind")
             bindService(myIntent,serviceConnection, Context.BIND_AUTO_CREATE)
         }
 
-
+        //Get value
         findViewById<Button>(R.id.btnGetValue).setOnClickListener {
             findViewById<TextView>(R.id.tvCounter).text = myService.getNumber().toString()
         }
 
+        //Stop service
         findViewById<Button>(R.id.btnStopService).setOnClickListener {
             stopService(myIntent)
         }
 
+        //Unbind
         findViewById<Button>(R.id.btnUnbind).setOnClickListener {
             unbindService(serviceConnection)
         }

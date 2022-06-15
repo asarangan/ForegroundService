@@ -60,7 +60,7 @@ class MyService: Service() {
         Log.d(TAG,"Service: onStartCommand")
         val serviceNotification:ServiceNotification = ServiceNotification()
         //serviceNotification.showNotification(this)
-        startForeground(1,serviceNotification.showNotification(this))
+        //startForeground(1,serviceNotification.showNotification(this))
         Thread{loop()}.start()
         return START_STICKY
     }
